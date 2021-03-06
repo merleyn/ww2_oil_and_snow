@@ -18,10 +18,13 @@
        -added city grid
        -carrier functions as airbase but with 1 scramble facility
               
-       
-       TO DO:
+              TO DO:
+       info advert tips Hepps...
+       add info bracket ssea
        fog of war
-       unit cannot be attacked by
+       yamamoto hull
+       noincome stalemate terr.
+       china no capital no incomw and prod
        maxplacement/ max units over all   :   maxBuiltPerPlayer
        is Marine USA   <option name='isMarine' value='1'/>
       rangers
@@ -1573,7 +1576,7 @@
     <productionRule name="buyEntrenchment"><cost resource="PUs" quantity="2"/><result resourceOrUnit="entrenchment" quantity="1"/></productionRule>
     <productionRule name="buyEntrenchmentFin"><cost resource="PUs" quantity="2"/><result resourceOrUnit="entrenchmentFin" quantity="1"/></productionRule>
     <productionRule name="buyEntrenchment_demolish"><cost resource="PUs" quantity="1"/><result resourceOrUnit="entrenchment_demolish" quantity="1"/></productionRule>
-    <productionRule name="buyFortification"><cost resource="PUs" quantity="15"/><result resourceOrUnit="fortification" quantity="1"/></productionRule>
+    <productionRule name="buyFortification"><cost resource="PUs" quantity="12"/><result resourceOrUnit="fortification" quantity="1"/></productionRule>
     <productionRule name="buyAirbase"><cost resource="PUs" quantity="6"/><result resourceOrUnit="airbase" quantity="1"/></productionRule>
     <productionRule name="buyAirbaseAdv"><cost resource="PUs" quantity="6"/><result resourceOrUnit="airbase" quantity="1"/></productionRule>
     <productionRule name="buyOilBarrels"><cost resource="PUs" quantity="1"/><result resourceOrUnit="Fuel" quantity="3"/></productionRule>
@@ -2220,7 +2223,7 @@
       <frontierRules name="buyTruck"/>
       <frontierRules name="buyFighter"/>
       <frontierRules name="buyAirTransport"/>
-      <frontierRules name="buyTransport"/>
+      <frontierRules name="buyTransportLight"/>
       <frontierRules name="buySubmarineLight"/>
       <frontierRules name="buyDestroyer"/>
       <frontierRules name="buyAaGun"/>
@@ -2242,7 +2245,7 @@
       <frontierRules name="buyTruck"/>
       <frontierRules name="buyFighter"/>
       <frontierRules name="buyAirTransport"/>
-      <frontierRules name="buyTransport"/>
+      <frontierRules name="buyTransportLight"/>
       <frontierRules name="buySubmarineLight"/>
       <frontierRules name="buyDestroyer"/>
       <frontierRules name="buyAaGun"/>
@@ -2266,7 +2269,7 @@
       <frontierRules name="buyFighter"/>
       <frontierRules name="buyBomber"/>
       <frontierRules name="buyAirTransport"/>
-      <frontierRules name="buyTransport"/>
+      <frontierRules name="buyTransportLight"/>
       <frontierRules name="buySubmarineLight"/>
       <frontierRules name="buyDestroyer"/>
       <frontierRules name="buyAaGun"/>
@@ -2288,7 +2291,7 @@
       <frontierRules name="buyTrainLight"/>
       <frontierRules name="buyTruck"/>
       <frontierRules name="buyFighter"/>
-      <frontierRules name="buyTransport"/>
+      <frontierRules name="buyTransportLight"/>
       <frontierRules name="buySubmarineLight"/>
       <frontierRules name="buyDestroyer"/>
       <frontierRules name="buyAaGun"/>
@@ -2310,7 +2313,7 @@
       <frontierRules name="buyTrainLight"/>
       <frontierRules name="buyTruck"/>
       <frontierRules name="buyFighter"/>
-      <frontierRules name="buyTransport"/>
+      <frontierRules name="buyTransportLight"/>
       <frontierRules name="buySubmarineLight"/>
       <frontierRules name="buyDestroyer"/>
       <frontierRules name="buyAaGun"/>
@@ -2654,7 +2657,7 @@
 <!-- Unit Attachments -->
 
 
-<!-- APRTISANS:  TRY :  		
+<!-- PARTISANS:  TRY :  		
 canNotTarget						values:                                              colon delimited list of units that this unit can't target in battles, ex. subs not being able to target air units
 canNotBeTargetedBy					values:                                  colon delimited list of units that can't target this unit, ex. air units not being able to target subs    -->
 		
@@ -2789,7 +2792,7 @@ canNotBeTargetedBy					values:                                  colon delimited 
 <attachment name="unitAttachment" attachTo="garrison" javaClass="UnitAttachment" type="unitType">
     <option name="movement" value="1"/><option name="canNotMoveDuringCombatMove" value="true"/>
     <option name="isInfantry" value="true"/>
-    <option name="requiresUnits" value="barracks"/><option name="requiresUnits" value="factory"/><option name="requiresUnits" value="factory_major"/><option name="unitPlacementRestrictions" value='West India'/>
+    <option name="requiresUnits" value="barracks"/><option name="requiresUnits" value="factory"/><option name="requiresUnits" value="factory_major"/><option name="unitPlacementRestrictions" value="West India"/>
     <option name="placementLimit" value="allied" count="5"/><!-- to avoid mass stacking of garisons -->
     <option name="attack" value="0"/><option name="defense" value="2"/>
     <option name="isAirTransportable" value="false"/><option name="isLandTransportable" value="true"/><option name="transportCost" value="1"/>
@@ -2886,7 +2889,7 @@ canNotBeTargetedBy					values:                                  colon delimited 
       <option name="attack" value="3"/><option name="defense" value="3"/>
       <option name="isAirTransportable" value="false"/><option name="isLandTransportable" value="true"/><option name="transportCost" value="1"/>
       <option name="canInvadeOnlyFrom" value="transport:transportLight"/>
-      <option name="requiresUnits" value="barracks"/><option name="requiresUnits" value="factory"/><option name="requiresUnits" value="factory_major"/><option name="unitPlacementRestrictions" value='West India'/>
+      <option name="requiresUnits" value="barracks"/><option name="requiresUnits" value="factory"/><option name="requiresUnits" value="factory_major"/><option name="unitPlacementRestrictions" value="West India"/>
       <!--  <option name="repairsUnits" value="fortification:entrenchment:entrenchmentFin:entrenchmentRum"/>-->
           <option name="placementLimit" value="allied" count="10"/><!-- to avoid mass stacking of infantry -->
           </attachment>
@@ -4167,6 +4170,7 @@ canNotBeTargetedBy					values:                                  colon delimited 
 					 <option name="maxAAattacks" value="1"/>
 					 <option name="attackAA" value="3"/>
 					 <option name="attackAAmaxDieSides" value="10"/>
+						<!-- WORKS??  --><option name="canNotBeTargetedBy" value="fighter:fighterP38:fighterLight:fighterLightRum:fighterLightArg:fighterLightSAfr:fighterLightMex:jetFighter:bomber:heavyBomber:v1-rocket"/> 
            <!-- TO DO<option name="unitPlacementOnlyAllowedIn" value="1 Sea Zone:11 Sea Zone"></option>  -->
     </attachment>
               
@@ -4697,7 +4701,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <!-- offensive leadership-->
 <attachment name="unitAttachment" attachTo="leadershipOffensive" javaClass="UnitAttachment" type="unitType">
       <option  name="movement" value="20"/>
-      <option  name="isAir" value='true'/>
+      <option  name="isAir" value="true"/>
       <option name="isInfrastructure" value="true"/>
        <!--   <option name="isSuicide" value="true"/>--> 
       <option name="isKamikaze" value="true"/>
@@ -4706,7 +4710,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 	   <option name="destroyedWhenCapturedBy" value="FROM:Germans:Italians:Vichy-French:Japanese:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
       <option name="tuv" value="15"/>
       
-      <!--WORKS? -->      <option name="placementLimit" value='allied' count='1'/>
+      <!--WORKS? -->      <option name="placementLimit" value="allied" count="1"/>
 </attachment>
 <attachment name="supportAttachmentleadershipOffensive" attachTo="leadershipOffensive" javaClass="UnitSupportAttachment" type="unitType">
       <option name="unitType" value="infantry:infantryMexExp:infantryBraExp:infantryMex:infantryBra:infantryAlpini:infantryAlpiniGe:infantryFin:infantryHun:infantryRu:infantryCa:infantryRum:infantrySAfr:infantryInd:infantryDu:infantryMong:infantryMand:infantryFrLeg:paratrooper:infantryGurkha:mech_infantry:rangers:cavalry:cavalryMong:artillery:artilleryLightHun:artilleryRum:artilleryLight:heavyHouwitzer:katyushaArtillery:armouredTrain:armour:armourT34:armourLight:armourLightHun:armourLightRum:heavyArmour:heavyArmour_hit:fighter:fighterP38:fighterLight:fighterLightRum:fighterLightSAfr:fighterLightMex:jetFighter:bomber:heavyBomber:v1-rocket:entrenchment:entrenchmentFin:entrenchmentRum:fortification:submarine:submarineVich:submarineGer:superSubmarine:submarineLightRum:flotilla:flotillaVich:flotillaRum:flotillaFin:flotillaBul:flotillaGre:flotillaBra:destroyer:destroyerVich:destroyerDu:destroyerRum:destroyerAdv:cruiser:cruiserVich:carrier:carrier_hit:battleship:battleshipVich:battleship_hit:battleshipVich_hit:heavyBattleship:heavyBattleship_hit"/>
@@ -4724,7 +4728,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <attachment name="unitAttachment" attachTo="leadershipDefensive" javaClass="UnitAttachment" type="unitType">
       <option  name="movement" value="20"/>
       <option name="isAAmovement" value="true"/>
-      <option  name="isAir" value='true'/>
+      <option  name="isAir" value="true"/>
       <option name="carrierCost" value="0"/>
       <option name="isInfrastructure" value="true"/>
        <!--   <option name="isSuicide" value="true"/>--> 
@@ -7721,39 +7725,39 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <!--CHANGE MONTHS-->
 <attachment name="triggerAttachmentSwitchJan-Feb" attachTo="X" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentJan-Feb"/>
-    <option name="uses" value="10"/>
+    <option name="uses" value="1"/>
     <option name="when" value="before:germansPurchase"/>
-    <option name="removeUnits" value="Calender1:nov-dec"/><option name="placement" value="Calender1:jan-feb"/>
+    <option name="placement" value="Calender1:jan-feb"/><option name="removeUnits" value="Calender1:nov-dec"/>
 </attachment>
 <attachment name="triggerAttachmentSwitchMar-Apr" attachTo="X" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentMar-Apr"/>
-    <option name="uses" value="10"/>
+    <option name="uses" value="1"/>
     <option name="when" value="before:germansPurchase"/>
-    <option name="removeUnits" value="Calender1:jan-feb" count="1"/><option name="placement" value="Calender1:mar-apr" count="1"/>
+    <option name="placement" value="Calender1:mar-apr" count="1"/><option name="removeUnits" value="Calender1:jan-feb" count="1"/>
 </attachment>
 <attachment name="triggerAttachmentSwitchMay-Jun" attachTo="X" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentMay-Jun"/>
-    <option name="uses" value="10"/>
+    <option name="uses" value="1"/>
     <option name="when" value="before:germansPurchase"/>
-    <option name="removeUnits" value="Calender1:mar-apr" count="1"/><option name="placement" value="Calender1:may-jun" count="1"/>
+    <option name="placement" value="Calender1:may-jun" count="1"/><option name="removeUnits" value="Calender1:mar-apr" count="1"/>
 </attachment>
 <attachment name="triggerAttachmentSwitchJul-Aug" attachTo="X" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentJul-Aug"/>
-    <option name="uses" value="10"/>
+    <option name="uses" value="1"/>
     <option name="when" value="before:germansPurchase"/>
-    <option name="removeUnits" value="Calender1:may-jun" count="1"/><option name="placement" value="Calender1:jul-aug" count="1"/>
+    <option name="placement" value="Calender1:jul-aug" count="1"/><option name="removeUnits" value="Calender1:may-jun" count="1"/>
 </attachment>
 <attachment name="triggerAttachmentSwitchSep-Oct" attachTo="X" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentSep-Oct"/>
-    <option name="uses" value="10"/>
+    <option name="uses" value="1"/>
     <option name="when" value="before:germansPurchase"/>
-   <option name="removeUnits" value="Calender1:jul-aug" count="1"/> <option name="placement" value="Calender1:sep-oct" count="1"/>
+    <option name="placement" value="Calender1:sep-oct" count="1"/><option name="removeUnits" value="Calender1:jul-aug" count="1"/>
 </attachment>
 <attachment name="triggerAttachmentSwitchNov-Dec" attachTo="X" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentNov-Dec"/>
-    <option name="uses" value="10"/>
+    <option name="uses" value="1"/>
     <option name="when" value="before:germansPurchase"/>
-    <option name="removeUnits" value="Calender1:sep-oct" count="1"/><option name="placement" value="Calender1:nov-dec" count="1"/>
+    <option name="placement" value="Calender1:nov-dec" count="1"/><option name="removeUnits" value="Calender1:sep-oct" count="1"/>
 </attachment>
 
 <!--CHANGE YEAR-->
@@ -8188,13 +8192,6 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <attachment name="triggerAttachmentUnitsRus_Factory_Stalingrad" attachTo="Russians" javaClass="TriggerAttachment" type="player">
       <option name="conditions" value="conditionAttachmentUnitsRus_Factory_Stalingrad"/>
       <option name="removeUnits" value="Stalingrad:factory_disabled"/><option name="removeUnits" value="Stalingrad:factory"/><option name="placement" value="Stalingrad:factory" count="1"/>
-      <option name="uses" value="1"/>
-      <option name="when" value="after:russiansPurchase"/>
-</attachment>
-<attachment name="conditionAttachmentUnitsRus_Factory_East_Ukraine" attachTo="Russians" javaClass="RulesAttachment" type="player"><option name="alliedOwnershipTerritories" value="East Ukraine" count="1"/></attachment>
-<attachment name="triggerAttachmentUnitsRus_Factory_East_Ukraine" attachTo="Russians" javaClass="TriggerAttachment" type="player">
-      <option name="conditions" value="conditionAttachmentUnitsRus_Factory_East_Ukraine"/>
-      <option name="removeUnits" value="East Ukraine:factory_disabled"/><option name="removeUnits" value="East Ukraine:factory"/><option name="placement" value="East Ukraine:factory" count="1"/>
       <option name="uses" value="1"/>
       <option name="when" value="after:russiansPurchase"/>
 </attachment>
@@ -9674,7 +9671,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 
 <!-- RAIL ROAD EXTENSIONS OPTIONS-->
 <!-- chinese-->
-<attachment name="conditionAttachmentRailroadGuizhou" attachTo="Chinese" javaClass="RulesAttachment" type="player"><option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/><option name='directPresenceTerritories' value='Guizhou' count='1'/><option name="unitPresence" value="railroad" count="1"/></attachment>
+<attachment name="conditionAttachmentRailroadGuizhou" attachTo="Chinese" javaClass="RulesAttachment" type="player"><option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/><option name="directPresenceTerritories" value="Guizhou" count="1"/><option name="unitPresence" value="railroad" count="1"/></attachment>
 <attachment name="triggerAttachmentGuizhouRailroad" attachTo="Chinese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentRailroadGuizhou"/><option name="territories" value="Guizhou"/><option name="territoryAttachmentName" value="TerritoryAttachment" count="territoryAttachment"/><option name="territoryProperty" value="territoryEffect" count="-reset-Hills"/><option name="uses" value="1"/><option name="when" value="after:frenchPlace"/></attachment>
 
 <attachment name="conditionAttachmentRailroadSichuan" attachTo="Chinese" javaClass="RulesAttachment" type="player"><option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/><option name="directPresenceTerritories" value="Sichuan" count="1"/><option name="unitPresence" value="railroad" count="1"/></attachment>
@@ -10101,8 +10098,8 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
     <territoryOwner territory="Peru" owner="Neutral_Allies"/>
     <territoryOwner territory="Central America" owner="Neutral_Allies"/>
     <territoryOwner territory="Guyana" owner="Neutral_Allies"/>
-    <territoryOwner territory="North Chile" owner="Neutral_True"/>
-    <territoryOwner territory="South Chile" owner="Neutral_True"/>
+    <territoryOwner territory="North Chile" owner="Neutral_Allies"/>
+    <territoryOwner territory="South Chile" owner="Neutral_Allies"/>
     <territoryOwner territory="Paraguay" owner="Neutral_Allies"/>
     <territoryOwner territory="North Argentina" owner="Neutral_Axis"/>
     <territoryOwner territory="South Argentina" owner="Neutral_Axis"/>
@@ -10411,7 +10408,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <unitPlacement unitType="artillery" territory="Vancouver" quantity="1" owner="Canadians"/>
 <unitPlacement unitType="barracks" territory="Vancouver" quantity="1" owner="Canadians"/>
 <unitPlacement unitType="destroyer" territory="2 Sea Zone" quantity="1" owner="Canadians"/>
-<unitPlacement unitType="transport" territory="2 Sea Zone" quantity="1" owner="Canadians"/>
+<unitPlacement unitType="transportLight" territory="2 Sea Zone" quantity="1" owner="Canadians"/>
 <unitPlacement unitType="transportLight" territory="145 Sea Zone" quantity="1" owner="Canadians"/>
 <unitPlacement unitType="flotilla" territory="145 Sea Zone" quantity="1" owner="Canadians"/>
 
@@ -10944,7 +10941,6 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <!-- SETUP NEUTRAL ALLIES -->
 <unitPlacement unitType="infantryGre" territory="Greece" quantity="2" owner="Neutral_Allies"/>
 <unitPlacement unitType="artilleryGre" territory="Greece" quantity="1" owner="Neutral_Allies"/> 
-<unitPlacement unitType="infantryGre" territory="Greece" quantity="2" owner="Neutral_Allies"/>
 <unitPlacement unitType="infantryPo" territory="Portugal" quantity="2" owner="Neutral_Allies"/>
 <unitPlacement unitType="transportLightGre" territory="37 Sea Zone" quantity="1" owner="Neutral_Allies"/>      
 <unitPlacement unitType="flotillaGre" territory="37 Sea Zone" quantity="1" owner="Neutral_Allies"/>    
@@ -10991,10 +10987,10 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <unitPlacement unitType="fighterLightArg" territory="North Argentina" quantity="1" owner="Neutral_Axis"/>  
 <unitPlacement unitType="trainLightArg" territory="North Argentina" quantity="1" owner="Neutral_Axis"/>          
 <unitPlacement unitType="garrisonArg" territory="South Argentina" quantity="1" owner="Neutral_Axis"/>
-<unitPlacement unitType="infantryChil" territory="North Chile" quantity="1" owner="Neutral_True"/>
-<unitPlacement unitType="no_railroad" territory="North Chile" quantity="1" owner="Neutral_True"/>
-<unitPlacement unitType="garrisonChil" territory="South Chile" quantity="1" owner="Neutral_True"/>
-<unitPlacement unitType="no_railroad" territory="South Chile" quantity="1" owner="Neutral_Axis"/>
+<unitPlacement unitType="infantryChil" territory="North Chile" quantity="1" owner="Neutral_Allies"/>
+<unitPlacement unitType="no_railroad" territory="North Chile" quantity="1" owner="Neutral_Allies"/>
+<unitPlacement unitType="garrisonChil" territory="South Chile" quantity="1" owner="Neutral_Allies"/>
+<unitPlacement unitType="no_railroad" territory="South Chile" quantity="1" owner="Neutral_Allies"/>
 <unitPlacement unitType="flotillaArg" territory="66 Sea Zone" quantity="1" owner="Neutral_Axis"/>
 <unitPlacement unitType="garrisonThai" territory="Thailand" quantity="2" owner="Neutral_Axis"/>
 <unitPlacement unitType="infantryIran" territory="North Iran" quantity="1" owner="Neutral_Axis"/>
@@ -11292,7 +11288,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 			<!-- 	<property name="Land Battles May Be Ignored" value="false" editable="true"><boolean/>
 						
 				</property> -->
-												<!-- Attacker is given the option not to create a battle for sea battles -->
+	<!-- Attacker is given the option not to create a battle for sea battles -->
 			<!-- 	<property name="Sea Battles May Be Ignored" value="true" editable="true"><boolean/>
 				</property> -->
 
@@ -11327,6 +11323,10 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 				<!-- 				<property name="Sea Battle Defenders Can Retreat" value="true" editable="false"><boolean/>
 				</property>
 								-->
+								
+<property name="Contested Territories Produce No Income" value="true" editable="true">
+		<boolean/>
+	</property>
 				
     <property name="Units Can Be Destroyed Instead Of Captured" value="true" editable="false"><boolean/>
     </property>
