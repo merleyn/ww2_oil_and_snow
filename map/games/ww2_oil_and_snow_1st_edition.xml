@@ -6513,7 +6513,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 
 <!-- LIMITED TRAIN MOVEMENT WITHOUT USING RAIL UNITS to avoid trains moving in non railed territories  --> <!-- KEEP NO TRAIN EFFECT WINTER TERRs-->    
     <attachment name="territoryEffectAttachment" attachTo="NoTrain" javaClass="games.strategy.triplea.attachments.TerritoryEffectAttachment" type="territoryEffect">
-                 <option name="unitsNotAllowed" value="train:trainLight:trainLightSAfr"/>
+                 <option name="unitsNotAllowed" value="train:trainLight:trainLightSAfr:armouredTrain"/>
     </attachment>               
 
 <!--  National Objectives-->
@@ -7350,7 +7350,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 </attachment>
 <attachment name="triggerAttachmentMakeWinter" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentWinter"/>
-    <option name="territories" value="Washington:Aleutians:2 Sea Zone:16 Sea Zone:17 Sea Zone:8 Sea Zone:9 Sea Zone:140 Sea Zone:141 Sea Zone:South Norway:Sweden:Finland:Murmansk:Archangelsk:Leningrad:Novgorod:Baltic States:Belarus:Smolensk:Komi:Vologda:Moscow:East Poland:Bryansk:Volgograd:Kuybishev:Chelyabinsk:Greater South Germany:Slovakia Hungary:Rumania:Bulgaria:Yugoslavia:West Ukraine:East Ukraine:Rostov:Caucasus:West Kazakhstan:East Kazakhstan:Novosibirsk:Altay:Evenkiskiy:Amur:Khabarovsk:Korea:North Mandsjoekwo:British Colombia:Alberta:Manitoba:Ontario:Northwest USA:Central USA:Midwest:Northeast USA:Quebec:Labrador:Ottawa:New Brunswick-Newfoundland"/>
+    <option name="territories" value="Washington:Aleutians:2 Sea Zone:16 Sea Zone:17 Sea Zone:8 Sea Zone:9 Sea Zone:140 Sea Zone:141 Sea Zone:South Norway:Sweden:Finland:Murmansk:Archangelsk:Leningrad:Novgorod:Baltic States:Belarus:Smolensk:Komi:Vologda:Gorki:Moscow:East Poland:Bryansk:Volgograd:Kuybishev:Chelyabinsk:Greater South Germany:Slovakia Hungary:Rumania:Bulgaria:Yugoslavia:West Ukraine:East Ukraine:Rostov:Caucasus:West Kazakhstan:East Kazakhstan:Novosibirsk:Altay:Evenkiskiy:Amur:Khabarovsk:Korea:North Mandsjoekwo:British Colombia:Alberta:Manitoba:Ontario:Northwest USA:Central USA:Midwest:Northeast USA:Quebec:Labrador:Ottawa:New Brunswick-Newfoundland"/>
     <option name="territoryAttachmentName" value="TerritoryAttachment" count="territoryAttachment"/>
     <option name="territoryProperty" value="territoryEffect" count="-reset-Winter"/>
     <option name="when" value="before:germansPurchase"/>
@@ -7422,7 +7422,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <!-- FOREST -->
 <attachment name="triggerAttachmentClearWinterReturnForest" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
     <option name="conditions" value="conditionAttachmentSpring"/>
-    <option name="territories" value="Sweden:Murmansk:Archangelsk:Novgorod:Baltic States:Belarus:Smolensk:Komi:Vologda:East Poland:Bryansk:Chelyabinsk:Bulgaria:Novosibirsk:Khabarovsk:Alberta:Manitoba:Ontario:Quebec"/>
+    <option name="territories" value="Sweden:Murmansk:Gorki:Archangelsk:Novgorod:Baltic States:Belarus:Smolensk:Komi:Vologda:East Poland:Bryansk:Chelyabinsk:Bulgaria:Novosibirsk:Khabarovsk:Alberta:Manitoba:Ontario:Quebec"/>
     <option name="territoryAttachmentName" value="TerritoryAttachment" count="territoryAttachment"/>
     <option name="territoryProperty" value="territoryEffect" count="-reset-Forest"/>
     <option name="when" value="before:germansPurchase"/>
@@ -7863,28 +7863,6 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
             <option name="notification" value="GerSovietVolunteers"/>
 </attachment>
 
-<!--
-<attachment name="triggerAttachmentUnitsIraq" attachTo="Germans" javaClass="TriggerAttachment" type="player">
-            <option name="conditions" value="conditionAttachmentUnitsGer_Iraq"/>
-            <option name="placement" value="Iraq:infantry" count="1"/>
-            <option name="uses" value="1"/>
-            <option name="when" value="after:germansNonCombatMove"/>
-            <option name="notification" value="GetGerItaIraqVolunteers"/>
-</attachment>
-<attachment name="triggerAttachmentUnitsIranN" attachTo="Germans" javaClass="TriggerAttachment" type="player">
-            <option name="conditions" value="conditionAttachmentUnitsGer_IranN"/>
-            <option name="placement" value="North Iran:infantry" count="1"/>
-            <option name="uses" value="1"/>
-            <option name="when" value="after:germansNonCombatMove"/>
-            <option name="notification" value="GetGerItaIranVolunteers"/>
-</attachment>
-<attachment name="triggerAttachmentUnitsIranS" attachTo="Germans" javaClass="TriggerAttachment" type="player">
-            <option name="conditions" value="conditionAttachmentUnitsGer_IranS"/>
-            <option name="placement" value="South Iran:infantry" count="1"/>
-            <option name="uses" value="1"/>
-            <option name="when" value="after:germansNonCombatMove"/>
-            <option name="notification" value="GetGerItaIranVolunteers"/>
-</attachment>-->
 
 <!-- FOR GERMANS AND ITALIANS  -->
 <!-- placement Volunteer tken after occupation -->
@@ -10858,7 +10836,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <unitPlacement unitType="infantry" territory="Caroline Islands" quantity="1" owner="Japanese"/>
 <unitPlacement unitType="fighter" territory="Caroline Islands" quantity="1" owner="Japanese"/>
 <unitPlacement unitType="artillery" territory="Caroline Islands" quantity="1" owner="Japanese"/>
-<unitPlacement unitType="airbase" territory="Caroline Islands" quantity="1" owner="Americans"/>
+<unitPlacement unitType="airbase" territory="Caroline Islands" quantity="1" owner="Japanese"/>
 <unitPlacement unitType="garrison" territory="Marshall Islands" quantity="1" owner="Japanese"/>
 <unitPlacement unitType="infantry" territory="Marianas" quantity="1" owner="Japanese"/>
 <unitPlacement unitType="garrison" territory="Formosa" quantity="1" owner="Japanese"/>
